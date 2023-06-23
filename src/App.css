@@ -1,0 +1,23 @@
+.input-table { 
+    width: 250px;
+    padding: 1rem;
+}
+
+table {
+    border: 2px solid rgb(107, 34, 139);
+    width: 800px;
+    height: 25px;
+}
+ 
+th {
+    border: 1px solid black;
+}
+ 
+td {
+    text-align: center;
+    border: 1px solid black;
+}
+
+tr { 
+    height: 25px; 
+}
