@@ -21,10 +21,13 @@ export function SortProvider({children}) {
     }
 
     const productSort = () => { 
-        const productAscendingSort = Array.from(snacks).sort((a,b)=> a.product_name - b.product_name)
-        const productDescendingSort = Array.from(snacks).sort((a,b)=> b.product_name - a.product_name)
-        toggle.productName===true && setSnackData(productAscendingSort)
-        toggle.productName===false && setSnackData(productDescendingSort)
+        const productAscendingSort = Array.from(snacks).sort((a,b)=> a.product_name[0]-b.product_name[0]);
+        console.log("product ascending", productAscendingSort)
+        const productDescendingSort = Array.from(snacks).sort((a,b)=> b.product_name[0]-a.product_name[0])
+        console.log("product descending", productDescendingSort)
+
+        toggle.productName===true && setSnackData([...productAscendingSort])
+        toggle.productName===false && setSnackData([...productDescendingSort])
     }
 
     /*
