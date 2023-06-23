@@ -4,7 +4,17 @@ import { snacks } from "./data";
 import { useSortSnacks } from "./sort-context";
 
 export function SnackTable() {
-  const { snackData, idSort, toggle, setToggle, productSort } = useSortSnacks();
+  const {
+    snackData,
+    idSort,
+    toggle,
+    setToggle,
+    productSort,
+    priceSort,
+    calorieSort,
+    weightSort,
+    ingredientSort,
+  } = useSortSnacks();
 
   return (
     <>
@@ -17,35 +27,73 @@ export function SnackTable() {
 
       <table>
         <thead>
-          <th
-            onClick={() => {
-              setToggle({ ...toggle, id: !toggle.id });
-              idSort();
-            }}
-          >
-            ID
-          </th>
+          <tr>
+            {/* id sort */}
+            <th
+              onClick={() => {
+                setToggle({ ...toggle, id: !toggle.id });
+                idSort();
+              }}
+            >
+              ID
+            </th>
 
-          <th
-            onClick={() => {
-              setToggle({ ...toggle, id: !toggle.productName });
-              productSort();
-            }}
-          >
-           
-            Product Name
-          </th>
+            {/* product name sort */}
+            <th
+              onClick={() => {
+                setToggle({ ...toggle, productName: !toggle.productName });
+                productSort();
+              }}
+            >
+              Product Name
+            </th>
 
-          <th> Product Weight </th>
-          <th> Price (INR) </th>
-          <th> Calories </th>
-          <th> Ingredients </th>
+            {/* weight sort */}
+            <th
+              onClick={() => {
+                setToggle({ ...toggle, weight: !toggle.weight });
+                weightSort();
+              }}
+            >
+              Product Weight
+            </th>
+
+            {/* price sort */}
+            <th
+              onClick={() => {
+                setToggle({ ...toggle, price: !toggle.price });
+                priceSort();
+              }}
+            >
+              Price (INR)
+            </th>
+
+            {/* calorie sort */}
+            <th
+              onClick={() => {
+                setToggle({ ...toggle, calories: !toggle.calories });
+                calorieSort();
+              }}
+            >
+              Calories
+            </th>
+
+            {/* ingredientSort */}
+            <th
+              onClick={() => {
+                setToggle({ ...toggle, ingredients: !toggle.ingredients });
+                ingredientSort();
+              }}
+            >
+              Ingredients
+            </th>
+          </tr>
         </thead>
 
         <tbody>
           {snackData.map((item) => {
             return (
-              <tr>
+              <tr key={item.id}>
                 <td> {item.id} </td>
                 <td> {item.product_name}</td>
                 <td> {item.product_weight} </td>
