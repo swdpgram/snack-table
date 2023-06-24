@@ -14,6 +14,14 @@ export function SortProvider({ children }) {
     weight: true,
     ingredients: true,
   });
+  const [search, setSearch] = useState("")
+
+  const searchHandler = (event) => { 
+    const searchValue = event.target.value
+    setSearch(searchValue)
+
+    const searchData = snacks.reduce((acc,curr)=> search.toLowerCase().includes(curr.product_name.toLowerCase(),...curr.ingredients.toLowerCase()))
+  }
 
   const idSort = () => {
     const snackList = [...snacks];
@@ -134,6 +142,9 @@ export function SortProvider({ children }) {
         ingredientSort,
         toggle,
         setToggle,
+        search, 
+        setSearch,
+        searchHandler
       }}
     >
       {children}

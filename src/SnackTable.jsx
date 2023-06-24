@@ -14,6 +14,8 @@ export function SnackTable() {
     calorieSort,
     weightSort,
     ingredientSort,
+    search, 
+    searchHandler
   } = useSortSnacks();
 
   return (
@@ -23,6 +25,8 @@ export function SnackTable() {
         type="text"
         placeholder="Search with products or ingredients"
         className="input-table"
+        value={search}
+        onChange={searchHandler}
       />
 
       <table>
